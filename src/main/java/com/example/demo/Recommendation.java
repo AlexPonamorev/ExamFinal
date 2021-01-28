@@ -8,11 +8,11 @@ public class Recommendation {
 
     @Getter
     @Setter
-    private Double price;
+    private String price;
 
     @Getter
     @Setter
-    private Double duration;
+    private String clockRate;
 
 
 }

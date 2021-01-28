@@ -10,17 +10,25 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class Model {
-    @Setter
-    @Getter
-    private String name;
+@Entity
+public class Model extends Identity{
 
     @Setter
     @Getter
-    @OneToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.MERGE, CascadeType.REMOVE})
-    private List<Model> model = new ArrayList<>();
+    private String nameKey;
+
+    @Setter
+    @Getter
+    private String nameValue;
+
+    @Setter
+    @Getter
+    private String brand;
+
+    @Setter
+    @Getter
+    @OneToMany(mappedBy = "model",fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    private List<Generation> model = new ArrayList<>();
 
 
 
