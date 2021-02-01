@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Select Option Example 3</title>
+</head>
+<body>
+<!-- Include _menu.html -->
+
+
+<h2>Select Option Example 3</h2>
+<th:block th:include="/_menu"></th:block>
+
+
+form th:action="@{/suggestH}"  th:object="${personForm}" method='POST'>
+    <table>
+        <tr>
+            <td>Select Country:</td>
+            <td>
+                <select th:field="*{countryId}">
+                    <option value=""> -- </option>
+                    <option th:each="key : ${BM.keySet()}"
+                            th:value="${key}"
+                            th:utext="${BM.get(key)}">
+                    </option>
+                </select>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+
+</html>

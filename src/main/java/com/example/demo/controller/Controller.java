@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 /**
- * http://localhost:8085/suggest/ford/focus/focus_i_1998-2005/kolodki_tormoznie_perednie_k-kt
+ *  http://localhost:8085/suggest/ford/focus/focus_i_1998-2005/kolodki_tormoznie_perednie_k-kt
  * */
 @RequestMapping("/suggest")
 @RestController

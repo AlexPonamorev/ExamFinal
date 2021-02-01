@@ -27,12 +27,19 @@ public class RecommendationService {
         Document document = Jsoup.connect(uri).get();
         Elements tables = document.getElementsByTag("h3");
 
+
         String price = tables.get(2).text();
         String clockRate = tables.get(3).text();
 
         Recommendation recommendation = new Recommendation();
-        recommendation.setPrice(price);
-        recommendation.setClockRate(clockRate);
+
+        if(clockRate.equals(NULL_MESSAGE)){
+            recommendation.setMessage(MESSAGE_NULL_PRICE);
+        }
+        else{
+            recommendation.setPrice(price);
+            recommendation.setClockRate(clockRate);}
+
 
         return recommendation;
     }
