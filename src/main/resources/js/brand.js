@@ -4,11 +4,11 @@ $(function(){
     $.ajax({
       type: "GET",
       dataType: 'JSON',
-      url: '/suggest' + countryId
+      url: '/suggestH' + countryId
     }).done(function(cities){
       let citiesOptions = '';
       cities.forEach((city) => {
-        citiesOptions += <option value="${city.id}">${city.name}</option>;
+        citiesOptions += <option value="${model}">${city.name}</option>;
       });
       $('#city').html(citiesOptions);
     }).fail(function() {

@@ -31,26 +31,7 @@ public class Controller {
     @Autowired
     UniversalService universalService;
 
-    @GetMapping(value = "/{brand}/{model}/{generation}/{auto_parts}")
-    public Recommendation getRecommendation(
-            @PathVariable(name = "auto_parts") String autoPartsString,
-            @PathVariable(name = "brand") String brandString,
-            @PathVariable(name = "model") String modelString,
-            @PathVariable(name = "generation") String generationString) {
 
-        AutoParts autoParts = serviceAll.parseAutoParts(autoPartsString);
-        Brand brand = serviceAll.parseBrand(brandString);
-        Model model = serviceAll.parseModel(modelString);
-        Generation generation = serviceAll.parseGeneration(generationString);
-
-        Recommendation recommend = null;
-        try {
-            recommend = recommendationService.recommend(autoParts, brand, model, generation);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return recommend;
-    }
     @GetMapping(value = "/")
     public Map<String,String> brandController(){
        Map<String,String> BM = new HashMap<>();
@@ -101,6 +82,25 @@ public class Controller {
         return APM;
     }
 
+    @GetMapping(value = "/{brand}/{model}/{generation}/{auto_parts}")
+    public Recommendation getRecommendation(
+            @PathVariable(name = "auto_parts") String autoPartsString,
+            @PathVariable(name = "brand") String brandString,
+            @PathVariable(name = "model") String modelString,
+            @PathVariable(name = "generation") String generationString) {
 
+        AutoParts autoParts = serviceAll.parseAutoParts(autoPartsString);
+        Brand brand = serviceAll.parseBrand(brandString);
+        Model model = serviceAll.parseModel(modelString);
+        Generation generation = serviceAll.parseGeneration(generationString);
+
+        Recommendation recommend = null;
+        try {
+            recommend = recommendationService.recommend(autoParts, brand, model, generation);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return recommend;
+    }
 
 }

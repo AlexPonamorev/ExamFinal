@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Формат JSON</title>
 
@@ -45,6 +45,16 @@ $.each(temp,function(key, value)
 
 </head>
 <body>
+
+<select th:field="*{countryId}">
+    <option value=""> -- </option>
+    <option th:each="key : ${BM.keySet()}"
+            th:value="${key}"
+            th:utext="${BM.get(key)}">
+    </option>
+</select>
+
+
 
  <label>Укажите бренд</label>
 <select name="brand" id="brandKey">

@@ -27,7 +27,10 @@ public class RecommendationService {
         Document document = Jsoup.connect(uri).get();
         Elements tables = document.getElementsByTag("h3");
 
+        Elements elements0 = document.getElementsByAttributeValue("class", "repair-price");
+        String price2 = elements0.text();
 
+        //<span class="repair-price">1 040</span>
         String price = tables.get(2).text();
         String clockRate = tables.get(3).text();
 
@@ -37,7 +40,7 @@ public class RecommendationService {
             recommendation.setMessage(MESSAGE_NULL_PRICE);
         }
         else{
-            recommendation.setPrice(price);
+            recommendation.setPrice(price2);
             recommendation.setClockRate(clockRate);}
 
 

@@ -8,10 +8,10 @@
 
 
 <h2>Select Option Example 3</h2>
-<th:block th:include="/_menu"></th:block>
 
 
-form th:action="@{/suggestH}"  th:object="${personForm}" method='POST'>
+
+<form th:action="@{/suggestH}"  th:object="${personForm}" method='GET'>
     <table>
         <tr>
             <td>Select Country:</td>

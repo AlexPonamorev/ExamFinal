@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html th:replace="~{base :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Главная</title>
+</head>
+<body>
+<section>
+
+    <form method="get" th:action="@{/}" th:object="${personForm}">
+        <div class="form-group row">
+            <label for="country" class="col-lg-2 col-form-label">Страна: </label>
+            <select id="country" class="col-lg-10" name="countryId" onchange="checkParams()" >
+                <option disabled selected value>Выберите страну</option>
+                <option th:each="key : ${BM.keySet()}"
+                        th:value="${key}"
+                        th:utext="${BM.get(key)}">
+                </option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <label for="city" class="col-lg-2 col-form-label">Город: </label>
+            <select id="city" class="col-lg-10" name="cityId" onchange="checkParams()" >
+
+            </select>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="place" class="col-lg-2 col-form-label">Категория: </label>
+            <select id="place" class="col-lg-10" name="placeId" onchange="checkParams()" >
+                <option value="personForm">Музеи</option>
+                <option value="theater">Театры</option>
+                <option value="sight">Достопримечательности</option>
+                <option value="excursion">Экскурсии</option>
+            </select>
+        </div>
+        <div id="button"><input id="submit" type="submit" value="Найти места"></div>
+    </form>
+
+</section>
+
+<script src="/js/brand.js" th:src="@{/js/brand.js}"></script>
+
+</body>
+</html>
