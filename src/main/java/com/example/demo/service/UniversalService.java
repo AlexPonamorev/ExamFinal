@@ -15,7 +15,7 @@ import static com.example.demo.Information.*;
 public class UniversalService {
 
     @Autowired
-    Parser parser; // какая видимасть должна быть?
+    Parser parser; // какая видимость должна быть?
 
     public Map<String, String> getMapBrand() throws IOException {
         Elements elements = null;

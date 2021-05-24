@@ -8,5 +8,5 @@ import org.springframework.data.repository.query.Param;
 public interface AutoPartsRepo extends PagingAndSortingRepository<AutoParts,Long> {
 
     @Query(value = "SELECT var FROM AutoParts var WHERE UPPER(var.nameKey) = :autoPartsNameK")
-    AutoParts findByTitle(@Param("autoPartsNameK") String autoPartsNameK); //вернеться в  Optional<AutoParts>
+    AutoParts findByTitle(@Param("autoPartsNameK") String autoPartsNameK); //вернется в  Optional<AutoParts>
 }

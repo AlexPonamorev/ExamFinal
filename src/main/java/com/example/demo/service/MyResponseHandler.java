@@ -19,7 +19,7 @@ public class MyResponseHandler implements ResponseHandler<String> {
         if (status >= 200 && status < 300) {
             HttpEntity entity = response.getEntity();
             if(entity == null) {
-                return " Нет ответа от серверна ";
+                return " Нет ответа от сервера ";
             } else {
                 return EntityUtils.toString(entity); // иначе вернуть
             }
