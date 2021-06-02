@@ -15,7 +15,7 @@ import static com.example.demo.Information.*;
 public class UniversalService {
 
     @Autowired
-    Parser parser; // какая видимость должна быть?
+    Parser parser;
 
     public Map<String, String> getMapBrand() throws IOException {
         Elements elements = null;
@@ -23,7 +23,7 @@ public class UniversalService {
         elements = parser.getElements(url, classForParsCar, 0);
         Map<String, String> mapBrand = new HashMap<>();
         for (Element elementX : elements) {
-            mapBrand.put(elementX.attr("value"),elementX.text());
+            mapBrand.put(elementX.text(),elementX.attr("value"));
         }
         return mapBrand;
 
@@ -36,7 +36,7 @@ public class UniversalService {
         elements = parser.getElements(url, classForParsCar, 1);
         Map<String, String> mapModel = new HashMap<>();
         for (Element elementX : elements) {
-            mapModel.put(elementX.attr("value"),elementX.text());
+            mapModel.put(elementX.text(),elementX.attr("value"));
         }
         return mapModel;
 
@@ -48,7 +48,7 @@ public class UniversalService {
         elements = parser.getElements(url, classForParsCar, 2);
         Map<String, String> generationMap = new HashMap<>();
         for (Element elementX : elements) {
-            generationMap.put(elementX.attr("value"),elementX.text());
+            generationMap.put(elementX.text(),elementX.attr("value"));
         }
         return generationMap;
     }
@@ -59,7 +59,7 @@ public class UniversalService {
         elements = parser.getElements(url, getClassForParsAuParts, 0);
         Map<String,String> AuPartsMap = new HashMap<>();
         for (Element elementX : elements) {
-            AuPartsMap.put(elementX.attr("value"),elementX.text());
+            AuPartsMap.put(elementX.text(),elementX.attr("value"));
         }
         return AuPartsMap;
     }

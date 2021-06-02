@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Oll brand</title>
+</head>
+<body>
+
+<div th:each="brandKey : ${brandMap.keySet()}">
+
+   <a th:href="@{/suggestHtml/{brand}(brand=${brandMap.get(brandKey)}) }"  th:text="${brandMap.get(brandKey)}"> VALUE </a>
+
+</div>
+
+
+
+</body>
+</html>

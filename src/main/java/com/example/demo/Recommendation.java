@@ -6,17 +6,25 @@ import lombok.Setter;
 
 public class Recommendation {
 
-    @Getter
-    @Setter
-    private String price;
 
-    @Getter
-    @Setter
+    public String getPrice() {
+        return price;
+    }
+
+    public String getClockRate() {
+        return clockRate;
+    }
+
+    private String price;
     private String clockRate;
 
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
-
-
+    public void setClockRate(String clockRate) {
+        this.clockRate = clockRate;
+    }
 
     public String getMessage() {
         return message;

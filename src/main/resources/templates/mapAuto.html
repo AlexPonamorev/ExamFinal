@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Oll generation</title>
+</head>
+<body>
+
+<div th:each="mapAutoKey : ${mapAuto.keySet()}">
+
+    <a th:href="@{/suggestHtml/{brand}/{model}/{generation}/{auto_parts} ( brand =${brandT}, generation=${genT}, model=${modelT}, auto_parts=${mapAuto.get(mapAutoKey)} ) }"
+
+       th:text="${mapAuto.get(mapAutoKey)}"> VALUE
+    </a>
+
+
+</div>
+
+
+
+</body>
+</html>

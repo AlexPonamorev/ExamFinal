@@ -58,7 +58,8 @@ public class Controller {
 
     @GetMapping(value = "/{brand}/{model}" )
     public Map<String,String> generationController(
-            @PathVariable(name = "brand") String brandsString,@PathVariable(name = "model") String modelString ){
+            @PathVariable(name = "brand") String brandsString,
+            @PathVariable(name = "model") String modelString ){
         Map<String,String> GM = new HashMap<>();
         try {
             GM = universalService.getMapGeneration(brandsString,modelString);
@@ -70,7 +71,8 @@ public class Controller {
 
     @GetMapping(value = "/{brand}/{model}/{generation}")
     public Map<String,String> autoPartsController(
-            @PathVariable(name = "brand") String brandString,@PathVariable(name = "model") String modelString,
+            @PathVariable(name = "brand") String brandString,
+            @PathVariable(name = "model") String modelString,
             @PathVariable(name ="generation") String generationString
     ){
         Map<String, String> APM = new HashMap<>();
