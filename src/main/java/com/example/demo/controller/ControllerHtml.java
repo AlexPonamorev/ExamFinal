@@ -28,10 +28,6 @@ public class ControllerHtml {
     @Autowired
     UniversalService universalService;
 
-//    @Autowired
-//    org.springframework.ui.Model model;
-
-
     @GetMapping(value = "/")
     public String brandController(org.springframework.ui.Model model){
         Map<String,String> BM = new HashMap<>();
@@ -49,12 +45,10 @@ public class ControllerHtml {
     public String modelController(@PathVariable(name= "brand") String brandString,
                                   org.springframework.ui.Model model){
         Map<String,String> MM = new HashMap<>();
-
         try {
             MM = universalService.getMapModel(brandString);
             model.addAttribute("modelMap", MM);
-            this.temporaryBrand = brandString;
-            model.addAttribute("brandTemp", temporaryBrand);
+            model.addAttribute("brandTemp", temporaryBrand=brandString);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +71,7 @@ public class ControllerHtml {
         }
         return "generation";
     }
-/*********************************************************************/
+
     @GetMapping(value = "/{brand}/{model}/{generation}")
     public String autoPartsController(
             @PathVariable(name = "brand") String brandsString,
@@ -98,7 +92,7 @@ public class ControllerHtml {
         }
         return "mapAuto";
     }
-//http://localhost:8090/suggestHtml/kia/rio_2005-2011/opora_sharovaya_levaya_peredney_podveski?model=rio
+
     @GetMapping(value = "/{brand}/{model}/{generation}/{auto_parts}")
     public String getRecommendation(
             @PathVariable(name = "auto_parts") String autoPartsString,
@@ -120,7 +114,6 @@ public class ControllerHtml {
             e.printStackTrace();
         }
         modelT.addAttribute("recommendMy", recommend);
-
         return "recommend";
     }
 

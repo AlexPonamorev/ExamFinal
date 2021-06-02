@@ -2,18 +2,11 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <!--  шаблон для отображения конкретного человека
-        thymeleaf - нужен для работы с моделью(Model model): отображать положенную в model иформацию - объект класса Person
-         model.addAttribute("MY_peopleByIndex", personDAO.OnePeopleByIndex(id)); - ранее добавили
-         "${MY_peopleByIndex.getName()}"  - извлекаем имя
-         -->
-
-    <title>One_people</title>
+    <title>Recommendation</title>
 </head>
 <body>
 
-<p40 th:text="${recommendMy.getPrice()}"> personName</p40>
-
+<p40 th:text="${recommendMy.getPrice()}"> VALUE</p40>
 
 </body>
 </html>

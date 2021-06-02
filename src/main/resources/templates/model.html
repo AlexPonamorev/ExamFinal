@@ -2,18 +2,14 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Oll brand</title>
+    <title>All brand</title>
 </head>
 <body>
-<!--   Задача: вывести list людей и чтобы каждый человек отображался как ссылка
-  В теамлифе есть цикл, который проходится по элементам коллекции и выводит каждый из элементов -->
-<!-- each="person" - временная переменная, указывает на элемент коллекции MY_peopleList, которую мы добавили в model ранее в методе контролера-->
-<!--${MY_peopleList} - коллекция по которой итерироваться ТОТ LIST ЧТО ИЗНАЧАЛЬНО БЫЛ ПОЛОЖЕН В МОДЕЛЬ-->
 <div th:each="modelKey : ${modelMap.keySet()}">
 
     <a  th:href="@{/suggestHtml/{brand}/{model}( model=${modelMap.get(modelKey)}, brand=${brandTemp} )}"
-        th:text="${modelMap.get(modelKey)}"> VALUE </a>
-
+        th:text="${modelMap.get(modelKey)}"> VALUE
+    </a>
 </div>
 
 
