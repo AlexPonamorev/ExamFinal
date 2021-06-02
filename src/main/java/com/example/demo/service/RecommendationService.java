@@ -17,7 +17,7 @@ import static com.example.demo.Information.*;
 @Service
 public class RecommendationService {
 
-    public Recommendation recommend(AutoParts autoParts, Brand brand, Model model, Generation generation) throws IOException {
+    public  Recommendation recommend(AutoParts autoParts, Brand brand, Model model, Generation generation) throws IOException {
         String autoPartsUri = autoParts.getNameKey();
         String brandUri = brand.getNameKey();
         String modelUri = model.getNameKey();
@@ -32,6 +32,7 @@ public class RecommendationService {
 
         //<span class="repair-price">1 040</span>
         String price = tables.get(2).text();
+
         String clockRate = tables.get(3).text();
 
         Recommendation recommendation = new Recommendation();

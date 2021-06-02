@@ -10,7 +10,7 @@
 
     <a th:href="@{/suggestHtml/{brand}/{model}/{generation}/{auto_parts} ( brand =${brandT}, generation=${genT}, model=${modelT}, auto_parts=${mapAuto.get(mapAutoKey)} ) }"
 
-       th:text="${mapAuto.get(mapAutoKey)}"> VALUE
+       th:text="${mapAutoKey}"> VALUE
     </a>
 
 

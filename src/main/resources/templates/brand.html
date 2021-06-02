@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" th:replace="~{::section}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All brand</title>
 </head>
 <body>
+<section>
 
+
+
+<img th:src="@{/img/0Jrvgf38V8.jpg}">
 <div th:each="brandKey : ${brandMap.keySet()}">
     <a th:href="@{/suggestHtml/{brand}(brand=${brandMap.get(brandKey)}) }"
        th:text="${brandMap.get(brandKey)}"> VALUE
     </a>
 </div>
 
+
+
+</section>
 </body>
 </html>
+
+<!--<html lang="en" xmlns:th="http://thymeleaf.org">  old 2-->

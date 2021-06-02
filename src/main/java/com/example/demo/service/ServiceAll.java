@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServiceAll {
 
-// как лучше - конструктор с одним параметром сделать или так
     public AutoParts parseAutoParts(String autoParts){
         AutoParts autoPartsNew = new AutoParts();
         autoPartsNew.setNameKey(autoParts);
@@ -34,5 +33,4 @@ public class ServiceAll {
         generationNew.setNameKey(generation);
         return generationNew;
     }
-
 }

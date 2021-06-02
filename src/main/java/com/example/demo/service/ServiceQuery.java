@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServiceQuery {
 
+    public ServiceQuery(){}
 
+    AutoPartsRepo autoPartsRepo;
     @Autowired
-     AutoPartsRepo autoPartsRepo;
-    //public ServiceQuery(AutoPartsRepo autoPartsRepo){this.autoPartsRepo = autoPartsRepo;}
+    public ServiceQuery(AutoPartsRepo autoPartsRepo){this.autoPartsRepo = autoPartsRepo;}
 
     public AutoParts add(AutoParts autoParts){
         if (autoPartsRepo.existsById(autoParts.getId()) || autoPartsRepo.findByTitle(autoParts.getNameKey().toLowerCase()) != null){

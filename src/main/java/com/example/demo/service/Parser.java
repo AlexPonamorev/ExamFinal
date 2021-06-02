@@ -16,7 +16,7 @@ import java.io.IOException;
 @Service
 public class Parser {
 
-    public Elements getElements(String url,String stringClass,int index ) throws IOException {
+    public static Elements getElements(String url, String stringClass, int index ) throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         ResponseHandler<String> responseHandler = new MyResponseHandler();
         HttpGet httpget = new HttpGet(url);
@@ -26,7 +26,6 @@ public class Parser {
         Elements elements = document.getElementsByAttributeValue("class", stringClass);
         Element elementXNew = elements.get(index);
         Elements elementXNewChild = elementXNew.children();
-
         return elementXNewChild;
     }
 
