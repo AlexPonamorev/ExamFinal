@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.AutoParts;
-import com.example.demo.exeption.AutoPartsException;
+import com.example.demo.exception.AutoPartsException;
 import com.example.demo.repository.AutoPartsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
