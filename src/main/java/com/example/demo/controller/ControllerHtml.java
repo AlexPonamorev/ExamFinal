@@ -7,9 +7,7 @@ import com.example.demo.service.ServiceAll;
 import com.example.demo.service.UniversalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -28,7 +26,7 @@ public class ControllerHtml {
     @Autowired
     UniversalService universalService;
 
-    @GetMapping(value = "/")
+    @GetMapping
     public String brandController(org.springframework.ui.Model model){
         Map<String,String> BM = new HashMap<>();
 
@@ -42,23 +40,25 @@ public class ControllerHtml {
     }
 
     @GetMapping(value = "/{brand}")
-    public String modelController(@PathVariable(name= "brand") String brandString,
+    public String modelController(@RequestParam(value = "braaand") String brandString,
                                   org.springframework.ui.Model model){
         Map<String,String> MM = new HashMap<>();
         try {
             MM = universalService.getMapModel(brandString);
             model.addAttribute("modelMap", MM);
-            model.addAttribute("brandTemp", temporaryBrand=brandString);
+            model.addAttribute("brandT", temporaryBrand=brandString);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "model";
     }
-
+    // извлекает URI
+//    @PathVariable(name = "brand") String brandsString,
+//    @PathVariable(name = "model") String modelString,
     @GetMapping(value = "/{brand}/{model}" )
     public String generationController(
             @PathVariable(name = "brand") String brandsString,
-            @PathVariable(name = "model") String modelString,
+            @RequestParam(value = "model") String modelString,
     org.springframework.ui.Model model){
         Map<String,String> GM = new HashMap<>();
         try {
@@ -76,7 +76,7 @@ public class ControllerHtml {
     public String autoPartsController(
             @PathVariable(name = "brand") String brandsString,
             @PathVariable(name = "model") String modelString,
-            @PathVariable(name ="generation") String generationString,
+            @RequestParam(value = "generation") String generationString,
             org.springframework.ui.Model model
     ){
         Map<String, String> APM = new HashMap<>();
@@ -95,10 +95,10 @@ public class ControllerHtml {
 
     @GetMapping(value = "/{brand}/{model}/{generation}/{auto_parts}")
     public String getRecommendation(
-            @PathVariable(name = "auto_parts") String autoPartsString,
-            @PathVariable(name = "brand") String brandString,
-            @PathVariable(name = "model") String modelString,
-            @PathVariable(name = "generation") String generationString,
+            @RequestParam(value = "auto_parts") String autoPartsString,
+            @PathVariable(value = "brand") String brandString,
+            @PathVariable(value = "model") String modelString,
+            @PathVariable(value = "generation") String generationString,
             org.springframework.ui.Model modelT) {
 
         AutoParts autoParts = serviceAll.parseAutoParts(autoPartsString);
@@ -113,8 +113,18 @@ public class ControllerHtml {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        modelT.addAttribute("recommendMy", recommend);
+        modelT.addAttribute("recommendMy",recommend);
         return "recommend";
     }
+
+    @ModelAttribute("headerMessage")
+    public String greetings(){
+        return " --- Цены на работы --- ";
+    }
+
+//    @GetMapping()
+//    public String redirect(@ModelAttribute("recommend")RecommendationService recommendN ){
+//        return "redirect:/suggestHtml";
+//    }
 
 }

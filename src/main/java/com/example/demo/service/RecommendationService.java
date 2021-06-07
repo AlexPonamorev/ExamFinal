@@ -17,6 +17,10 @@ import static com.example.demo.Information.*;
 @Service
 public class RecommendationService {
 
+
+    public RecommendationService() {
+    }
+
     public  Recommendation recommend(AutoParts autoParts, Brand brand, Model model, Generation generation) throws IOException {
         String autoPartsUri = autoParts.getNameKey();
         String brandUri = brand.getNameKey();

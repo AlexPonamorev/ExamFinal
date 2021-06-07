@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>All auto</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/0Jrvgf38V8.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<div class="container m-top">
+<!--<div th:each="mapAutoKey : ${mapAuto.keySet()}">-->
+<!--    <a th:href="@{/suggestHtml/{brand}/{model}/{generation}/{auto_parts} ( brand =${brandT}, generation=${genT}, model=${modelT}, auto_parts=${mapAuto.get(mapAutoKey)} ) }"-->
+<!--       th:text="${mapAutoKey}"> VALUE-->
+<!--    </a>-->
+<!--</div>-->
 
-<div th:each="mapAutoKey : ${mapAuto.keySet()}">
+<form method="get" th:action="@{http://localhost:8086/suggestHtml/{brand}/{model}/{generation}/{auto_parts}(brand=${brandT}, model=${modelT}, generation=${genT})}" >
+    <select name="auto_parts">
+        <option value=""> Выберете запчасть </option>
+        <option th:each="entry : ${mapAuto.entrySet()}"
+                th:value= "${entry.value}"
+                th:utext="${entry.key}">
+    </select>
 
-    <a th:href="@{/suggestHtml/{brand}/{model}/{generation}/{auto_parts} ( brand =${brandT}, generation=${genT}, model=${modelT}, auto_parts=${mapAuto.get(mapAutoKey)} ) }"
-
-       th:text="${mapAutoKey}"> VALUE
-    </a>
-
-
-</div>
-
-
+    <button type="submit"> Подтвердить </button>
+</form>
 
 </body>
 </html>

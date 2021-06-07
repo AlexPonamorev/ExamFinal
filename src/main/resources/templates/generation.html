@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Oll generation </title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/0Jrvgf38V8.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<div class="container m-top">
+<!--<div th:each="genKey : ${generationMap.keySet()}">-->
 
-<div th:each="genKey : ${generationMap.keySet()}">
-
-    <a th:href="@{/suggestHtml/{brand}/{model}/{generation} ( brand =${brandT},model=${modelT}, generation=${generationMap.get(genKey)}  ) }"
-       th:text="${generationMap.get(genKey)}"> VALUE
-    </a>
+<!--    <a th:href="@{/suggestHtml/{brand}/{model}/{generation} ( brand =${brandT},model=${modelT}, generation=${generationMap.get(genKey)}  ) }"-->
+<!--       th:text="${generationMap.get(genKey)}"> VALUE-->
+<!--    </a>-->
 
 
-</div>
+<!--</div>-->
 
+<form method="get" th:action="@{http://localhost:8086/suggestHtml/{brand}/{model}/{generation}(brand=${brandT}, model=${modelT})}" >
+    <select name="generation">
+        <!--выпадают ключи отправляются  - значения по ним(value)-->
+        <option value=""> Выберете поколение </option>
+        <option th:each="entry : ${generationMap.entrySet()}"
+                th:value= "${entry.value}"
+                th:utext="${entry.key}">
+    </select>
+
+    <button type="submit"> Подтвердить </button>
+</form>
 
 
 </body>

@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>All brand</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
-<body>
-<div th:each="modelKey : ${modelMap.keySet()}">
+<body th:style="'background-image:url(' + @{/img/0Jrvgf38V8.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<div class="container m-top">
+<!--<div th:each="entry : ${modelMap.keySet()}">-->
 
-    <a  th:href="@{/suggestHtml/{brand}/{model}( model=${modelMap.get(modelKey)}, brand=${brandTemp} )}"
-        th:text="${modelMap.get(modelKey)}"> VALUE
-    </a>
-</div>
+<!--    <a  th:href="@{/suggestHtml/{brand}/{model}( model=${entry.value}, brand=${brandTemp} )}"-->
+<!--        th:text="${entry.value}"> VALUE-->
+<!--    </a>-->
+<!--</div>-->
+<form method="get" th:action="@{http://localhost:8086/suggestHtml/{brand}/{model}(brand=${brandT})}" >
+
+    <select name="model" >
+        <option value=""> Выберете модель </option>
+        <option th:each="entry : ${modelMap.entrySet()}"
+                th:value= "${entry.value}"
+                th:utext="${entry.key}">
+    </select>
+
+    <button type="submit"> Подтвердить </button>
+</form>
+
 
 
 

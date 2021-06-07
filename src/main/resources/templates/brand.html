@@ -1,25 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{::section}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All brand</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
-<body>
-<section>
+
+<body th:style="'background-image:url(' + @{/img/0Jrvgf38V8.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+
+<!--<p th:text="${headerMessage}"> HM </p>-->
+
+<div class="container m-top">
 
 
 
-<img th:src="@{/img/0Jrvgf38V8.jpg}">
-<div th:each="brandKey : ${brandMap.keySet()}">
-    <a th:href="@{/suggestHtml/{brand}(brand=${brandMap.get(brandKey)}) }"
-       th:text="${brandMap.get(brandKey)}"> VALUE
-    </a>
-</div>
+    <!--выпадают ключи(key),  отправляются значения по ним(value) в  <select name записывается value -->
+
+    <form method="get" th:action="@{http://localhost:8086/suggestHtml/{brand}}">
+        <select name="braaand">
+            <option value=""> Выберете бренд </option>
+        <option th:each="entry : ${brandMap.entrySet()}"
+                th:value= "${entry.value}"
+                th:utext="${entry.key}" >
+                    </select>
+        <button type="submit"> Подтвердить </button>
+                </form>
 
 
 
-</section>
+
+            </div>
+
+            <!--<div th:each="excursion : ${excursions}">-->
+<!--    <p>-->
+<!--        <span th:utext="${excursion.name}"></span>-->
+<!--        <a th:href="@{/admin/excursions/del(id=${excursion.id})}" th:action="@{/admin/excursions/del}"><img th:src="@{/img/delete_icon.png}"></a>-->
+<!--    </p>-->
+<!--</div>-->
+
+<script src="/js/city.js" th:src="@{/js/city.js}"></script>
 </body>
 </html>
 
-<!--<html lang="en" xmlns:th="http://thymeleaf.org">  old 2-->
+<!--                th:value= "${entry.key}"-->
+<!--                th:utext="${entry.value}"-->
+
+
