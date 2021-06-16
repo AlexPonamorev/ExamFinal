@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.AutoPart;
 import com.example.demo.entity.Brand;
+import com.example.demo.entity.Generation;
 import com.example.demo.entity.Model;
 import com.example.demo.repository.BrandRepository;
 import com.example.demo.repository.ModelRepository;
@@ -57,13 +59,13 @@ public class UniversalService {
 
     }
 
-    public List<Model> getModelList(String brandUrl) throws IOException {
+    public List<Model> getModelList(String brandURI) throws IOException {
         System.out.println(" I am here ");
 
         Elements elements = null;
-        String url = BASE_URL + brandUrl + DEL;
+        String url = BASE_URL + brandURI + DEL;
         elements = Parser.getElements(url, classForParsCar, 1);
-        Brand brand = brandRepository.getBrandByNameKey(brandUrl);
+        Brand brand = brandRepository.getBrandByNameKey(brandURI);
         System.out.println(" BrandByModel =  " + brand.getNameKey());
 
         List<Model> modelList = new ArrayList<>();
@@ -84,27 +86,38 @@ public class UniversalService {
 
     }
 
-//    public Map<String, String> getMapGeneration(String brandUrl, String modelUrl) throws IOException {
-//        Elements elements = null;
-//        String url = BASE_URL + brandUrl + DEL + modelUrl;
-//        elements = Parser.getElements(url, classForParsCar, 2);
-//        Map<String, String> generationMap = new HashMap<>();
-//        for (Element elementX : elements) {
-//            generationMap.put(elementX.text(),elementX.attr("value"));
-//        }
-//        return generationMap;
-//    }
-//
-//    public Map<String,String> getMapAutoParts(String brandUrl, String modelUrl, String generationUrl ) throws IOException {
-//        Elements elements = null;
-//        String url = BASE_URL + brandUrl + DEL + modelUrl + DEL + generationUrl;
-//        elements = Parser.getElements(url, getClassForParsAuParts, 0);
-//        Map<String,String> AuPartsMap = new HashMap<>();
-//        for (Element elementX : elements) {
-//            AuPartsMap.put(elementX.text(),elementX.attr("value"));
-//        }
-//        return AuPartsMap;
-//    }
+    public List<Generation> getGenerationList(String brandURI, String modelURI) throws IOException {
+        Elements elements = null;
+        String url = BASE_URL + brandURI + DEL + modelURI;
+        elements = Parser.getElements(url, classForParsCar, 2);
+        List<Generation> generationList = new ArrayList<>();
+        for (Element elementX : elements) {
+          Generation generation = new Generation();
+
+            generation.setNameValue(elementX.text());
+            generation.setNameKey(elementX.attr("value"));
+
+
+            generationList.add(generation);
+//            generationService.add(model,brand);
+        }
+        return generationList;
+    }
+
+    public List<AutoPart> getAutoPartsList(String brandURI, String modelURI, String generationURI ) throws IOException {
+        Elements elements = null;
+        String url = BASE_URL + brandURI + DEL + modelURI + DEL + generationURI;
+        elements = Parser.getElements(url, getClassForParsAuParts, 0);
+        List<AutoPart> autoPartList = new ArrayList<>();
+        for (Element elementX : elements) {
+            AutoPart autoPart = new AutoPart();
+            autoPart.setNameValue(elementX.text());
+            autoPart.setNameKey(elementX.attr("value"));
+            autoPartList.add(autoPart);
+        }
+
+        return autoPartList;
+    }
 
 
 }

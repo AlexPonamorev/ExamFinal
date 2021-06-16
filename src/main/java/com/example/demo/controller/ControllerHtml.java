@@ -128,9 +128,9 @@ public class ControllerHtml {
         return " --- Цены на работы --- ";
     }
 
-//    @GetMapping()
-//    public String redirect(@ModelAttribute("recommend")RecommendationService recommendN ){
-//        return "redirect:/suggestHtml";
-//    }
+    @GetMapping()
+    public String redirect(@ModelAttribute("recommend")RecommendationService recommendN ){
+        return "redirect:/suggestHtml";
+    }
 
 }

@@ -8,7 +8,7 @@
     <div th:insert="~{parts/common :: customization}"></div>
 
 </head>
-
+<body>
 
 <div>
 
@@ -19,16 +19,27 @@
             <!--в id придет значение value -->
             <select class="form-select" aria-label="Default select example" id="brandSelect" required>
                 <option selected disabled value=""> Выберете бренд</option>
-                <!--/*@thymesVar id="nameKey" type="text"*/-->
                 <option th:each="brand : ${brandList}"
                         th:value="${brand.nameKey}"
-                        th:utext="${brand.nameKey}">
+                        th:utext="${brand.nameValue}">
             </select>
 
-
+            <!-- выбор модели в выпадающем списке-->
             <select class="form-select" aria-label="Default select example" id="modelSelect" required>
                 <option selected disabled value="">Выберите модель</option>
             </select>
+
+            <!-- Выбор поколения в выпадающем списке -->
+            <select class="form-select" aria-label="Default select example" id="generationSelect" required>
+                <option selected disabled value="">Выберите поколение</option>
+            </select>
+
+            <!--  Выбор запчасти в выпадающем списке-->
+            <select class="form-select" aria-label="Default select example" id="autoPartsSelect"
+                    name="ticketId" required>
+                <option selected disabled value="">Выберите запчасть для замены </option>
+            </select>
+
 
 
         </div>
