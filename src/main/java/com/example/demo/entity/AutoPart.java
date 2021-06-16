@@ -6,26 +6,27 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "brands")
-public class Brand {
-    public Brand() {
+@Table(name = "autoParts")
+public class AutoPart {
+    public AutoPart() {
     }
 
     @Id
     @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
-    private Long brand_id;
+    @Column(name = "autoPart_id")
+    private Long autoPart_id;
 
-
-    public Long getBrand_id() {
-        return brand_id;
+    public Long getAutoPart_id() {
+        return autoPart_id;
     }
 
-    public void setBrand_id(Long brand_id) {
-        this.brand_id = brand_id;
+    public void setAutoPart_id(Long autoPart_id) {
+        this.autoPart_id = autoPart_id;
     }
 
     private String nameKey;
@@ -48,9 +49,9 @@ public class Brand {
         this.nameValue = nameValue;
     }
 
-    @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
+    @ManyToMany()
+    @JoinTable(name = "autoPartAndModel", joinColumns = @JoinColumn(name = "autoPart_id"), inverseJoinColumns = @JoinColumn(name = "model_id"))
     private List<Model> modelsList = new ArrayList<>();
-
 
     public List<Model> getModelsList() {
         return modelsList;
@@ -59,4 +60,5 @@ public class Brand {
     public void setModelsList(List<Model> modelsList) {
         this.modelsList = modelsList;
     }
+
 }

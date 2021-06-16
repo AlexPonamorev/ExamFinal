@@ -5,6 +5,7 @@ import com.example.demo.entity.*;
 import com.example.demo.service.RecommendationService;
 import com.example.demo.service.ServiceAll;
 import com.example.demo.service.UniversalService;
+import com.example.demo.service.UniversalServiceOld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +17,27 @@ import java.util.Map;
 @Controller
 public class ControllerHtml {
 
+
     private String temporaryBrand;
     private String temporaryModel;
     private String temporaryGen;
+    private final RecommendationService recommendationService;
+    private final ServiceAll serviceAll;
+    private final UniversalServiceOld universalServiceOld;
+
     @Autowired
-    RecommendationService recommendationService;
-    @Autowired
-    ServiceAll serviceAll;
-    @Autowired
-    UniversalService universalService;
+    public ControllerHtml(RecommendationService recommendationService, ServiceAll serviceAll, UniversalServiceOld universalServiceOld) {
+        this.recommendationService = recommendationService;
+        this.serviceAll = serviceAll;
+        this.universalServiceOld = universalServiceOld;
+    }
 
     @GetMapping
     public String brandController(org.springframework.ui.Model model){
         Map<String,String> BM = new HashMap<>();
 
         try {
-            BM = universalService.getMapBrand();
+            BM  = universalServiceOld.getMapBrand();
             model.addAttribute("brandMap", BM);
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,7 +50,7 @@ public class ControllerHtml {
                                   org.springframework.ui.Model model){
         Map<String,String> MM = new HashMap<>();
         try {
-            MM = universalService.getMapModel(brandString);
+            MM = universalServiceOld.getMapModel(brandString);
             model.addAttribute("modelMap", MM);
             model.addAttribute("brandT", temporaryBrand=brandString);
         } catch (IOException e) {
@@ -62,7 +68,7 @@ public class ControllerHtml {
     org.springframework.ui.Model model){
         Map<String,String> GM = new HashMap<>();
         try {
-            GM = universalService.getMapGeneration(brandsString,modelString);
+            GM = universalServiceOld.getMapGeneration(brandsString,modelString);
             model.addAttribute("generationMap", GM);
             model.addAttribute("brandT",temporaryBrand=brandsString);
             model.addAttribute("modelT",temporaryModel=modelString);
@@ -81,7 +87,7 @@ public class ControllerHtml {
     ){
         Map<String, String> APM = new HashMap<>();
         try {
-            APM = universalService.getMapAutoParts(brandsString,modelString,generationString);
+            APM = universalServiceOld.getMapAutoParts(brandsString,modelString,generationString);
             model.addAttribute("mapAuto", APM);
             model.addAttribute("brandT",temporaryBrand=brandsString);
             model.addAttribute("modelT",temporaryModel=modelString);
@@ -101,7 +107,7 @@ public class ControllerHtml {
             @PathVariable(value = "generation") String generationString,
             org.springframework.ui.Model modelT) {
 
-        AutoParts autoParts = serviceAll.parseAutoParts(autoPartsString);
+        AutoPart autoParts = serviceAll.parseAutoParts(autoPartsString);
         Brand brand = serviceAll.parseBrand(brandString);
         Model model = serviceAll.parseModel(modelString);
         Generation generation = serviceAll.parseGeneration(generationString);

@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.AutoParts;
+import com.example.demo.entity.AutoPart;
 import com.example.demo.entity.Brand;
 import com.example.demo.entity.Generation;
 import com.example.demo.entity.Model;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServiceAll {
 
-    public AutoParts parseAutoParts(String autoParts){
-        AutoParts autoPartsNew = new AutoParts();
-        autoPartsNew.setNameKey(autoParts);
-        return autoPartsNew;
+    public AutoPart parseAutoParts(String autoParts){
+        AutoPart autoPartNew = new AutoPart();
+        autoPartNew.setNameKey(autoParts);
+        return autoPartNew;
     }
 
     public Brand parseBrand(String brand){

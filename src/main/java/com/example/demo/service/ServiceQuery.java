@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.AutoParts;
+import com.example.demo.entity.AutoPart;
 import com.example.demo.exception.AutoPartsException;
 import com.example.demo.repository.AutoPartsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +15,11 @@ public class ServiceQuery {
     @Autowired
     public ServiceQuery(AutoPartsRepo autoPartsRepo){this.autoPartsRepo = autoPartsRepo;}
 
-    public AutoParts add(AutoParts autoParts){
-        if (autoPartsRepo.existsById(autoParts.getId()) || autoPartsRepo.findByTitle(autoParts.getNameKey().toLowerCase()) != null){
+    public AutoPart add(AutoPart autoPart){
+        if (autoPartsRepo.existsById(autoPart.getAutoPart_id()) || autoPartsRepo.findByTitle(autoPart.getNameKey().toLowerCase()) != null){
             throw  new AutoPartsException("Деталь есть в базе ");
         }
-        return autoPartsRepo.save(autoParts);
+        return autoPartsRepo.save(autoPart);
     }
 
 

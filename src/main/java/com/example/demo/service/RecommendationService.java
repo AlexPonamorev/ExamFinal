@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.Recommendation;
-import com.example.demo.entity.AutoParts;
+import com.example.demo.entity.AutoPart;
 import com.example.demo.entity.Brand;
 import com.example.demo.entity.Generation;
 import com.example.demo.entity.Model;
@@ -21,8 +21,8 @@ public class RecommendationService {
     public RecommendationService() {
     }
 
-    public  Recommendation recommend(AutoParts autoParts, Brand brand, Model model, Generation generation) throws IOException {
-        String autoPartsUri = autoParts.getNameKey();
+    public  Recommendation recommend(AutoPart autoPart, Brand brand, Model model, Generation generation) throws IOException {
+        String autoPartsUri = autoPart.getNameKey();
         String brandUri = brand.getNameKey();
         String modelUri = model.getNameKey();
         String generationUri = generation.getNameKey();

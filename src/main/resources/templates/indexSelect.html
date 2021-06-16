@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="~{parts/navbar_all :: navbar_all}"></div>
+    <div th:insert="~{parts/common :: customization}"></div>
+
+</head>
+
+
+<div>
+
+    <div>
+
+        <!-- Выбор бренда -->
+        <div class="col-sm">
+            <!--в id придет значение value -->
+            <select class="form-select" aria-label="Default select example" id="brandSelect" required>
+                <option selected disabled value=""> Выберете бренд</option>
+                <!--/*@thymesVar id="nameKey" type="text"*/-->
+                <option th:each="brand : ${brandList}"
+                        th:value="${brand.nameKey}"
+                        th:utext="${brand.nameKey}">
+            </select>
+
+
+            <select class="form-select" aria-label="Default select example" id="modelSelect" required>
+                <option selected disabled value="">Выберите модель</option>
+            </select>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script src="/js/brand.js"></script>
+
+</body>
+</html>

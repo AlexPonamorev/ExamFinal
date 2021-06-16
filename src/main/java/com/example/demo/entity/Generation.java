@@ -1,29 +1,59 @@
 package com.example.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Generation extends Identity{
-    @Setter
-    @Getter
+@Table(name = "generations")
+public class Generation {
+    public Generation() {
+    }
+
+    @Id
+    @GenericGenerator(name = "generator", strategy = "increment")
+    @GeneratedValue(generator = "generator")
+    private Long generation_id;
+
+    public Long getGeneration_id() {
+        return generation_id;
+    }
+
+    public void setGeneration_id(Long generation_id) {
+        this.generation_id = generation_id;
+    }
+
     private String nameKey;
 
-    @Setter
-    @Getter
+    public String getNameKey() {
+        return nameKey;
+    }
+
+    public void setNameKey(String nameKey) {
+        this.nameKey = nameKey;
+    }
+
     private String nameValue;
 
-    @Setter
-    @Getter
-    private String model;
+    public String getNameValue() {
+        return nameValue;
+    }
 
-    @Setter
-    @Getter
-    @ManyToMany(mappedBy = "generation",fetch = FetchType.LAZY)
-    public List<AutoParts> autoParts = new ArrayList<>();
+    public void setNameValue(String nameValue) {
+        this.nameValue = nameValue;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "generationAndModels", joinColumns = @JoinColumn(name = "generation_id"), inverseJoinColumns = @JoinColumn(name = "models_id"))
+    private List<Model> modelsList;
+
+    public List<Model> getModelsList() {
+        return modelsList;
+    }
+
+    public void setModelsList(List<Model> modelsList) {
+        this.modelsList = modelsList;
+    }
+
 }
