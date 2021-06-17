@@ -17,7 +17,7 @@
 
 </div>
 
-<form method="get" th:action="@{http://localhost:8086/suggestHtml/{brand}/{model}/{generation}(brand=${brandT}, model=${modelT})}" >
+<form method="get" th:action="@{/suggest/{brand}/{model}/{generation}(brand=${brandT}, model=${modelT})}" >
     <select name="generation">
         <!--выпадают ключи отправляются  - значения по ним(value)-->
         <option value=""> Выберете поколение </option>

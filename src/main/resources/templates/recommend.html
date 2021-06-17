@@ -13,11 +13,11 @@
 
 
 <p th:if="${recommendMy.getPrice().empty}"> Для уточнения стоимости данной работы свяжитесь с нами по телефону ... </p>
-<p4 th:if="not ${recommendMy.getPrice().empty}" > Стоимость работ по замене данной детали</p4>
+<p4 th:if="not ${recommendMy.getPrice().empty}" >Стоимость работ по замене данной детали</p4>
 <span th:utext="${recommendMy.getPrice()}"> </span>
 <p40 th:if="not ${recommendMy.getPrice().empty}" > Рублей </p40>
 
-<a th:href="@{/suggestHtml}"> Вернуться назад </a>
+<!--<a th:href="@{/suggest}"> Вернуться назад </a>-->
 
 </div>
 

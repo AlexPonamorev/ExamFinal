@@ -91,5 +91,34 @@ function fillSelect(arr, nameSelect){
     }
 }
 
-//GET
-// 	http://localhost:8086/%7Bbrand%7D/brand?brand=brilliance
+    $(function(){
+    $( "button" ).click(function(){
+        let autoPart = $('#autoPartsSelect').val();
+        let brand = $('#brandSelect').val();
+        let model =  $('#modelSelect').val();
+        let generation = $('#generationSelect').val();
+        $.ajax({
+            method: "GET",
+            dataType: 'html',
+            url: '/recommend',
+            data: {
+                autoPart: autoPart,
+                brand: brand,
+                model: model,
+                generation: generation
+            },
+            success: [function ( recommend ) { // функции обратного вызова, которые вызываются если AJAX запрос выполнится успешно (если несколько функций, то необходимо помещать их в массив)
+                $('#data-box').html(recommend); // добавляем текстовую информацию и данные возвращенные с сервера
+            },
+                function () { // вызов второй функции из массива
+                    console.log( "next function" );
+                }],
+            statusCode: {
+                200: function () { // выполнить функцию если код ответа HTTP 200
+                    console.log( "Ok" );
+                }
+            }
+        })
+    });
+});
+

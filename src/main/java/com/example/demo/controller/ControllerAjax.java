@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.Recommendation;
 import com.example.demo.entity.AutoPart;
 import com.example.demo.entity.Brand;
 import com.example.demo.entity.Generation;
@@ -89,6 +90,30 @@ public class ControllerAjax {
             e.printStackTrace();
         }
         return autoPartList;
+    }
+
+    @GetMapping(value = "/recommend")
+    public String getRecommendation(
+            @RequestParam(value = "autoPart") String autoPartsURI,
+            @RequestParam(value = "brand") String brandURI,
+            @RequestParam(value = "model") String modelURI,
+            @RequestParam(value = "generation") String generationURI,
+            org.springframework.ui.Model modelT) {
+
+        AutoPart autoPart = serviceAll.parseAutoParts(autoPartsURI);
+        Brand brand = serviceAll.parseBrand(brandURI);
+        Model model = serviceAll.parseModel(modelURI);
+        Generation generation = serviceAll.parseGeneration(generationURI);
+
+        Recommendation recommend = null;
+        try {
+            recommend = recommendationService.recommend(autoPart, brand, model, generation);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        modelT.addAttribute("recommendMy",recommend);
+        return "recommend";
     }
 
 }

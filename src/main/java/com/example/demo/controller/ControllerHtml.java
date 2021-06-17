@@ -4,7 +4,6 @@ import com.example.demo.Recommendation;
 import com.example.demo.entity.*;
 import com.example.demo.service.RecommendationService;
 import com.example.demo.service.ServiceAll;
-import com.example.demo.service.UniversalService;
 import com.example.demo.service.UniversalServiceOld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-@RequestMapping("/suggestHtml")
+@RequestMapping("/suggest")
 @Controller
 public class ControllerHtml {
 
@@ -32,7 +31,7 @@ public class ControllerHtml {
         this.universalServiceOld = universalServiceOld;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String brandController(org.springframework.ui.Model model){
         Map<String,String> BM = new HashMap<>();
 
@@ -130,7 +129,7 @@ public class ControllerHtml {
 
     @GetMapping()
     public String redirect(@ModelAttribute("recommend")RecommendationService recommendN ){
-        return "redirect:/suggestHtml";
+        return "redirect:/suggest";
     }
 
 }

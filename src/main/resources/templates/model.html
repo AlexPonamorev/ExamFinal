@@ -14,7 +14,7 @@
 <!--        th:text="${entry.value}"> VALUE-->
 <!--    </a>-->
 <!--</div>-->
-<form method="get" th:action="@{http://localhost:8086/suggestHtml/{brand}/{model}(brand=${brandT})}" >
+<form method="get" th:action="@{/suggest/{brand}/{model}(brand=${brandT})}" >
 
     <select name="model" >
         <option value=""> Выберете модель </option>

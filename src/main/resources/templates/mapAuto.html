@@ -14,7 +14,7 @@
 <!--    </a>-->
 <!--</div>-->
 
-<form method="get" th:action="@{http://localhost:8086/suggestHtml/{brand}/{model}/{generation}/{auto_parts}(brand=${brandT}, model=${modelT}, generation=${genT})}" >
+<form method="get" th:action="@{/suggest/{brand}/{model}/{generation}/{auto_parts}(brand=${brandT}, model=${modelT}, generation=${genT})}" >
     <select name="auto_parts">
         <option value=""> Выберете запчасть </option>
         <option th:each="entry : ${mapAuto.entrySet()}"
