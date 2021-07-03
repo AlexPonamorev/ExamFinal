@@ -33,7 +33,7 @@ public class ControllerAjax {
 
     @GetMapping("/")
     public String indexController() {
-        return "index";
+        return "main";
     }
 
     @GetMapping("/price")
@@ -48,7 +48,7 @@ public class ControllerAjax {
         }
         return "price";
     }
-
+///home/alex/Document/IdeaProjects/FinalExam/src/main/resources/static/css
     @GetMapping(value = "/brand")
     @ResponseBody
     public List<Model> modelController(@RequestParam(value = "brand") String brandString) {

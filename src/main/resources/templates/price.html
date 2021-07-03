@@ -7,63 +7,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/stylee.css">
+    <link rel="stylesheet" href="/css/selectPrice.css">
 
 </head>
 
-<body  class="body-background">
-
+<body class="body-background">
 <div th:insert="~{parts/navbar_all :: navbar_all}"></div>
-<div th:insert="~{parts/common :: customization}"></div>
+<section >
 
-<div class="container">
-    <div>
-        <!-- Выбор бренда -->
-        <div >
-            <!--в id придет значение value -->
-            <select  id="brandSelect" required>
-                <option selected disabled value=""> Выберете бренд</option>
-                <option th:each="brand : ${brandList}"
-                        th:value="${brand.nameKey}"
-                        th:utext="${brand.nameValue}">
-            </select>
+    <div class="container">
+        <div>
+            <!-- Выбор бренда -->
+            <div>
+                <!--в id придет значение value -->
+                <select class="select-css" id="brandSelect" required>
+                    <option selected disabled value=""> Выберете бренд</option>
+                    <option th:each="brand : ${brandList}"
+                            th:value="${brand.nameKey}"
+                            th:utext="${brand.nameValue}">
+                </select>
 
-            <!-- выбор модели в выпадающем списке-->
-            <select id="modelSelect" required>
-                <option selected disabled value="">Выберите модель</option>
-            </select>
 
-            <!-- Выбор поколения в выпадающем списке -->
-            <select  id="generationSelect" required>
-                <option selected disabled value="">Выберите поколение</option>
-            </select>
+                <!-- выбор модели в выпадающем списке-->
+                <select class="select-css" id="modelSelect" required>
+                    <option selected disabled value="">Выберите модель</option>
+                </select>
 
-            <!--  Выбор запчасти в выпадающем списке-->
-            <select  id="autoPartsSelect"
-                    name="ticketId" required>
-                <option selected disabled value="">Выберите запчасть для замены </option>
-            </select>
-            <br/>
-            <hr/>
-            <br/>
-            <button> Рассчитать стоимость замены </button>
-            <br/>
-            <hr/>
-            <table id="data-box">
-                <tr><td>Loading...</td></tr>
-            </table>
+
+                <!-- Выбор поколения в выпадающем списке -->
+                <select class="select-css" id="generationSelect" required>
+                    <option selected disabled value="">Выберите поколение</option>
+                </select>
+
+                <!--  Выбор запчасти в выпадающем списке-->
+                <select class="select-css" id="autoPartsSelect"
+                        name="ticketId" required>
+                    <option selected disabled value="">Выберите запчасть для замены</option>
+                </select>
+                <br/>
+                <hr/>
+                <br/>
+                <button class="btn"> Рассчитать стоимость замены</button>
+                <br/>
+                <hr/>
+                <table id="data-box">
+                    <tr>
+                        <td>Loading...</td>
+                    </tr>
+                </table>
+
+            </div>
+
 
         </div>
 
-
     </div>
 
-</div>
+</section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/brand.js"></script>
 
-</script>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
 <head>
   <link rel="stylesheet" href="/webjars/bootstrap/4.5.3/css/bootstrap.min.css">
 
@@ -8,17 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intermotors</title>
   <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/stylee.css">
 
 
   <!--Вставляем шаблон с бутстрап настройками -->
   <div th:insert="~{parts/common :: customization}"></div>
 </head>
-<body>
+<body class="body-background">
 <div th:insert="parts/navbar_all :: navbar_all"></div>
 
 <main>
-
   <section class="section-spec-offers section-margin">
     <div class="container">
       <h2 class="section-heading spec-offers-heading">
