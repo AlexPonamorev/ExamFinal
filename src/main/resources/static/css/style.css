@@ -1,0 +1,622 @@
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerBold.woff2') format('woff2'), url('/fonts/MullerBold.woff') format('woff');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerLight.woff2') format('woff2'), url('/fonts/MullerLight.woff') format('woff');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerMedium.woff2') format('woff2'), url('/fonts/MullerMedium.woff') format('woff');
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerRegular.woff2') format('woff2'), url('/fonts/MullerRegular.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.body-background {
+  font-family: 'MullerRegular', 'MullerMedium', 'MullerLight', 'MullerBold';
+  background-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h2, h3 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1200px;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  background-color: transparent;
+  font-family: 'Muller';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  border-radius: 8px;
+  border: 1px solid;
+  color: #000000;
+  cursor: pointer;
+}
+
+.btn-1 {
+  margin-right: 50px;
+}
+
+.section-margin {
+  margin-bottom: 70px;
+}
+
+.lagoona-header {
+  padding-top: 30px;
+}
+
+/* Шапка сайта */
+
+.header-contacts-link {
+  display: flex;
+  flex: auto;
+  align-items: center;
+  font-family: 'Muller';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #666666;
+}
+
+.header-private-room {
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  font-family: 'Muller';
+  font-size: 20px;
+  font-weight: 700;
+  color:rgb(0, 0, 0);
+  font-style: normal;
+  line-height: 16px;
+}
+
+.header-container {
+  align-items: center;
+  height: 100%;
+}
+
+.section-heading {
+  margin-bottom: 0px;
+  margin-left: 40px;
+  font-family: 'Muller';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  line-height: 40px;
+}
+
+.logo {
+  display: flex;
+  margin-right: 40px;
+
+}
+
+.logo-img {
+  border-radius: 15px;
+  width: 600px;
+
+}
+
+.nav {
+  padding-right: 56px;
+  height: 100%;
+  border-right: 1px solid #E1E1E1;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  padding: 17px 0;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 45px;
+}
+
+.nav-link {
+  font-family: 'Muller';
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16px;
+  color: #000000;
+}
+
+.header-unit-1 {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.header-unit-2 {
+  display: flex;
+  padding: 14px 45px 14px 45px;
+  justify-content: space-between;
+  border-radius: 15px;
+  align-items: center;
+  background-color: #eeeeee;
+}
+
+.header-item {
+  display: flex;
+}
+
+/* Секция спецпредложения */
+
+.spec-offers-heading {
+  margin-bottom: 20px;
+}
+
+.section-spec-offers {
+  justify-content: space-around
+}
+
+.section-spec-offers-heading-container {
+  display: inline-block;
+}
+
+.section-heading-item {
+  margin-bottom: 15px;
+  width: 299px;
+  font-weight: bold;
+  font-family: 'Muller';
+  font-size: 40px;
+  color: #ffffff;
+  line-height: 40px;
+}
+
+.section-spec-description-item {
+  margin-bottom: 47px;
+  font-family: 'Muller';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: white;
+}
+
+.section-spec-description-item-2 {
+  margin-bottom: 47px;
+  font-family: 'Muller';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  color: white;
+}
+
+.section-spec-offers-link {
+  padding-right: 15px;
+  background-image: url(/img/pointer-icon.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  font-family: 'Muller';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: white;
+}
+
+.section-spec-offers-heading-container-right {
+  display: inline-block;
+  width: 299px;
+  min-height: 180px;
+}
+
+.section-heading-item-right {
+  margin-bottom: 15px;
+  width: 299px;
+  font-family: 'Muller';
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px;
+  color: #FFFFFF;
+}
+
+.section-spec-offers-all-units {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-spec-offers-unit-1 {
+  flex-direction: column;
+  flex: 50%;
+  margin-right: 23px;
+}
+
+.section-spec-offers-item-left {
+  margin-bottom: 25px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 40px;
+  width: 573px;
+  min-height: 258px;
+  background-image: url(/img/1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.section-spec-offers-item-left-2 {
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  width: 573px;
+  min-height: 259px;
+  background-image: url(/img/3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.section-spec-offers-unit-2 {
+  flex-direction: column;
+  flex: 50%;
+  padding-top: 211px;
+  padding-left: 40px;
+  padding-bottom: 47px;
+  width: 573px;
+  min-height: 540px;
+  background-image: url(/img/2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
+
+/* Секция о нас */
+
+.about-us-heading {
+  margin-bottom: 11px;
+}
+
+.section-about-us-description {
+  max-width: 888px;
+  font-family: 'Muller';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+/* Секция услуги */
+
+.services-heading {
+  margin-bottom: 20px;
+}
+
+.section-services-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section-services-link {
+  color: #CC9933;
+}
+
+.section-services-description {
+  display: inline-block;
+  padding-right: 15px;
+  background-image: url(/img/pointer-icon.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  font-family: 'Muller';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  }
+
+.section-services-description-text {
+  width: 402px;
+  font-family: 'Muller';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.section-services-content {
+  padding-left: 45px;
+}
+
+.section-services-item {
+  flex: 1 1 45%;
+  margin-bottom: 23px;
+  padding-bottom: 50px;
+  width: 573px;
+  min-height: 330px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.section-services-item:not(:nth-child(2n)) {
+  margin-right: 23px;
+}
+
+.section-services-img {
+  margin-bottom: 26px;
+  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+  height: 165px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  line-height: 0;
+}
+
+.img-glasses {
+  background-image: url("/img/glasses.jpg");
+  background-size: cover;
+}
+
+.img-banquet {
+  background-image: url("/img/banquet.jpg");
+  background-size: cover;
+}
+
+.img-sauna {
+  background-image: url("/img/sauna.jpg");
+  background-size: cover;
+}
+
+.img-parking {
+  background-image: url("/img/parking.jpg");
+  background-size: cover;
+}
+
+/* Секция преимущества */
+
+.advantages-heading {
+  margin-bottom: 30px;
+}
+
+.advantages-margin {
+  margin-bottom: 50px;
+}
+
+.section-advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section-advantages-item {
+  flex: 1 1 20%;
+  margin-bottom: 23px;
+  padding-top: 40px;
+  padding-left: 45px;
+  padding-bottom: 41px;
+  width: 275px;
+  min-height: 275px;
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+
+.section-advantages-item:not(:nth-child(4n)) {
+  margin-right: 23px;
+}
+
+.section-advantages-image {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 66px;
+  height: 66px;
+}
+
+.section-advantages-description {
+  display: inline-block;
+  width: 188px;
+  min-height: 118px;
+  font-family: 'Muller';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.img-1 {
+  background-image: url(/img/bathtub.svg);
+}
+
+.img-2 {
+  background-image: url(/img/hanger.svg);
+}
+
+.img-3 {
+  background-image: url(/img/heating.svg);
+}
+
+.img-4 {
+  background-image: url(/img/hotel-key.svg);
+}
+
+.img-5 {
+  background-image: url(/img/parking.svg);
+}
+
+.img-6 {
+  background-image: url(/img/reception.svg);
+}
+
+.img-7 {
+  background-image: url(/img/security-box.svg);
+}
+
+.img-8 {
+  background-image: url(/img/swimming-pool.svg);
+}
+
+/* Секция размещение */
+
+.siting-heading {
+  margin-bottom: 30px;
+}
+
+.section-siting-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.section-siting-text {
+  padding-left: 45px;
+}
+
+.section-siting-text-gray {
+  font-family: 'Muller';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: #999999;
+}
+
+.section-siting-text-price {
+  font-family: 'Muller';
+  font-weight: 700;
+  line-height: 20px;
+  font-size: 20px;
+}
+
+.section-siting-item {
+  display: inline-block;
+  margin-bottom: 23px;
+  width: 374px;
+  min-height: 440px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.section-siting-item-show-more {
+  display: flex;
+  border-radius: 15px;
+  align-items: flex-end;
+  width: 373px;
+  min-height: 440px;
+  border-radius: 15px;
+  background-image: url(/img/all-places.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.section-siting-item:not(:nth-child(3n)) {
+  margin-right: 23px;
+  width: 374px;
+  min-height: 440px;
+}
+
+.section-siting-item:not(:last-child) {
+  padding-bottom: 41px;
+}
+
+.section-siting-description {
+  margin-bottom: 20px;
+}
+
+.section-siting-text-other {
+  margin-right: 44px;
+  font-family: 'Muller';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.section-siting-img {
+  margin-bottom: 36px;
+  width: 374px;
+  min-height: 217px;
+  border-radius: 15px 15px 0px 0px;
+  line-height: 0;
+}
+
+.section-siting-img-border {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.section-siting-img-border2 {
+  border-radius: 15px;
+}
+
+.section-siting-item-heading {
+  margin-bottom: 16px;
+  font-family: 'Muller';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: #000000;
+}
+
+.section-siting-link {
+  display: inline-block;
+  margin-bottom: 27px;
+  margin-left: 54px;
+  padding-right: 15px;
+  background-image: url(/img/pointer-icon-white.svg);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  font-family: 'Muller';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  color: #FFFFFF;
+}

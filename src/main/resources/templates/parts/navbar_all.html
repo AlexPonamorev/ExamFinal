@@ -1,14 +1,59 @@
 <!DOCTYPE html> <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavbarAll</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="body-background">
 <div th:fragment="navbar_all">
-<!--    <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+    <header class="header lagoona-header section-margin">
+        <div class="container header-container">
+            <div class="header-unit-1">
+                <a href="" class="logo">
+                    <img src="/img/intermotors_tp_ajyf_.png" alt="Intermotors-logo" class="logo-img">
+                </a>
+                <a href="https://yandex.ru/maps/org/avtoservis_intermotors/1765908942/?display-text=intermotors&ll=30.473303%2C59.958981&mode=search&sctx=ZAAAAAgBEAAaKAoSCRR5knTNUD5AEfTF3osv%2BE1AEhIJS2z9%2F3%2BN7z8RUl71icZ20T8oCjgAQL2eAUgBagJydXAAnQHNzEw9oAEAqAEAvQFfOrhiwgEFzsOGygbqAQDyAQD4AQCCAgtpbnRlcm1vdG9yc4oCAA%3D%3D&sll=30.473303%2C59.958981&sspn=0.032345%2C0.008539&text=intermotors&z=15.93" class="header-private-room">
+                    г. Санкт-Петербург Ириновский пр. 22/2
+                </a>
+            </div>
+            <div class="header-unit-2">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Услуги</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Акции</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/price" class="nav-link">Цены</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">История СТО</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-item">
+                    <a href="" class="btn btn-1">
+                        Онлайн запись
+                    </a>
+                    <a href="" class="btn">
+                        Контакты
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
 
-<!--    </nav>-->
 </div>
 
 <div th:insert="~{parts/common :: customization}"></div>

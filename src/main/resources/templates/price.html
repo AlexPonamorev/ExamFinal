@@ -4,20 +4,25 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <div th:insert="~{parts/navbar_all :: navbar_all}"></div>
-    <div th:insert="~{parts/common :: customization}"></div>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
-<body>
 
-<div>
+<body  class="body-background">
 
+<div th:insert="~{parts/navbar_all :: navbar_all}"></div>
+<div th:insert="~{parts/common :: customization}"></div>
+
+<div class="container">
     <div>
-
         <!-- Выбор бренда -->
-        <div class="col-sm">
+        <div >
             <!--в id придет значение value -->
-            <select class="form-select" aria-label="Default select example" id="brandSelect" required>
+            <select  id="brandSelect" required>
                 <option selected disabled value=""> Выберете бренд</option>
                 <option th:each="brand : ${brandList}"
                         th:value="${brand.nameKey}"
@@ -25,17 +30,17 @@
             </select>
 
             <!-- выбор модели в выпадающем списке-->
-            <select class="form-select" aria-label="Default select example" id="modelSelect" required>
+            <select id="modelSelect" required>
                 <option selected disabled value="">Выберите модель</option>
             </select>
 
             <!-- Выбор поколения в выпадающем списке -->
-            <select class="form-select" aria-label="Default select example" id="generationSelect" required>
+            <select  id="generationSelect" required>
                 <option selected disabled value="">Выберите поколение</option>
             </select>
 
             <!--  Выбор запчасти в выпадающем списке-->
-            <select class="form-select" aria-label="Default select example" id="autoPartsSelect"
+            <select  id="autoPartsSelect"
                     name="ticketId" required>
                 <option selected disabled value="">Выберите запчасть для замены </option>
             </select>
@@ -55,8 +60,10 @@
     </div>
 
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/brand.js"></script>
+
+</script>
 
 </body>
 </html>

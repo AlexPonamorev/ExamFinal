@@ -31,8 +31,12 @@ public class ControllerAjax {
         this.universalService = universalService;
     }
 
+    @GetMapping("/")
+    public String indexController() {
+        return "index";
+    }
 
-    @GetMapping
+    @GetMapping("/price")
     public String brandController(org.springframework.ui.Model model) {
         List<Brand> brandList = null;
 
@@ -42,7 +46,7 @@ public class ControllerAjax {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "indexSelect";
+        return "price";
     }
 
     @GetMapping(value = "/brand")

@@ -74,7 +74,6 @@ public class UniversalService {
             model.setNameValue(elementX.text());
             model.setNameKey(elementX.attr("value"));
 
-
             modelList.add(model);
             modelService.add(model,brand);
 

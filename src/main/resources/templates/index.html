@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="/webjars/bootstrap/4.5.3/css/bootstrap.min.css">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermotors</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+  <!--Вставляем шаблон с бутстрап настройками -->
+  <div th:insert="~{parts/common :: customization}"></div>
+</head>
+<body>
+<div th:insert="parts/navbar_all :: navbar_all"></div>
+
+<main>
+
+  <section class="section-spec-offers section-margin">
+    <div class="container">
+      <h2 class="section-heading spec-offers-heading">
+        Выбирайте Нас
+      </h2>
+      <div class="section-spec-offers-all-units">
+        <div class="section-spec-offers-unit-1">
+          <ul class="section-spec-offers-list-left">
+            <li class="section-spec-offers-item-left">
+              <div class="section-spec-offers-heading-container">
+                <h3 class="section-heading-item">
+                  Отзывы
+                </h3>
+              </div>
+              <p class="section-spec-description-item">
+                "Главное чтобы клиент остался доволен"
+              </p>
+
+              <a href="" class="section-spec-offers-link ">
+                Подробнее
+              </a>
+
+            </li>
+            <li class="section-spec-offers-item-left-2">
+              <div class="section-spec-offers-heading-container">
+                <h3 class="section-heading-item">
+                  Наши работы
+                </h3>
+              </div>
+              <p class="section-spec-description-item">
+                "Производим ремонт и обслуживание любых узлов"
+              </p>
+
+              <a href="" class="section-spec-offers-link ">
+                Подробнее
+              </a>
+
+            </li>
+          </ul>
+        </div>
+        <div class="section-spec-offers-unit-2">
+
+          <div class="section-spec-offers-heading-container-right">
+            <h3 class="section-heading-item-right">
+              Контакты
+            </h3>
+          </div>
+          <p class="section-spec-description-item-2">
+            "Ждем Вашего звонка в любое время с 10-00 до 20-00"
+          </p>
+
+          <a href="" class="section-spec-offers-link ">
+            Подробнее
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-about-us section-margin">
+    <div class="container">
+      <h2 class="section-heading about-us-heading">
+        История сервиса
+      </h2>
+      <p class="section-about-us-description">
+        Станция технического обслуживания полного цикла с 1996 года оказывает широкий спектр услуг по ремонту транспортных средств различных марок и моделей, делая ставку на опыт и открытость. Гарантией качества служит профессионализм, квалификация мастеров, а также использование ими новейшего оборудования, сертифицированных запчастей, расходных материалов от проверенных поставщиков. Специалисты проведут компьютерную диагностику., выявят причину неисправности и оперативно справятся с ней, проведя необходимые слесарные работы, починив ходовую часть, топливную аппаратуру, подвеску, выхлопную и тормозную системы, автоэлектрику, заменив масло, выполнив сход-развал. Также здесь есть шиномонтаж, автомойка, химчистка. Для удобства гостей оборудована комфортная зона ожидания с Wi-Fi. На все вопросы ответят при звонке по указанному номеру телефона.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

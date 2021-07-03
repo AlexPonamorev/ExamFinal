@@ -91,7 +91,7 @@ function fillSelect(arr, nameSelect){
     }
 }
 
-    $(function(){
+$(function(){
     $( "button" ).click(function(){
         let autoPart = $('#autoPartsSelect').val();
         let brand = $('#brandSelect').val();
@@ -121,4 +121,3 @@ function fillSelect(arr, nameSelect){
         })
     });
 });
-
